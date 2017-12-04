@@ -1,5 +1,7 @@
-﻿using System;
+﻿using CocktailRecipeApp.Services;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,9 +24,24 @@ namespace CocktailRecipeApp
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private ICocktailService cocktailService;
+
         public MainPage()
         {
             this.InitializeComponent();
+
+            cocktailService = new CocktailService();
+            
+        }
+
+        private async void button_Click(object sender, RoutedEventArgs e)
+        {
+            var response = await cocktailService.SearchCocktails("margarita");
+
+            foreach(var cocktail in response.Drinks)
+            {
+                Debug.WriteLine(cocktail);
+            }
         }
     }
 }

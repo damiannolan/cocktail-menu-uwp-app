@@ -14,6 +14,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace CocktailRecipeApp
 {
@@ -30,6 +32,11 @@ namespace CocktailRecipeApp
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            JsonConvert.DefaultSettings = () => new JsonSerializerSettings
+            {
+                ContractResolver = new CamelCasePropertyNamesContractResolver()
+            };
         }
 
         /// <summary>
