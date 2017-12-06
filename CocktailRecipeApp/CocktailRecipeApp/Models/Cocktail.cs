@@ -47,5 +47,7 @@ namespace CocktailRecipeApp.Models
         //public string StrMeasure13 { get; set; }
         //public string StrMeasure14 { get; set; }
         //public string StrMeasure15 { get; set; }
+        public List<string> StrIngredients { get; set; }
+        public List<string> StrMeasures { get; set; }
     }
 }
