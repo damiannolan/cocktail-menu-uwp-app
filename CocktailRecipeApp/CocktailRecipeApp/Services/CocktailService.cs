@@ -36,7 +36,10 @@ namespace CocktailRecipeApp.Services
 
         public async Task<CocktailList> SearchCocktails(string searchName)
         {
-            
+            // Tried to implement using the HttpUtility - UrlEncode but was having problems getting it working
+            // https://msdn.microsoft.com/en-us/library/zttxte6w.aspx
+            // Had to use oldschool - replace() for dealing with search strings using spaces
+            searchName = searchName.Replace(" ", "+");   
             client.BaseAddress = new Uri(searchEndpoint + searchName);
 
             HttpResponseMessage response = await client.GetAsync(client.BaseAddress);
@@ -49,7 +52,6 @@ namespace CocktailRecipeApp.Services
                 //var jsonSettings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
                 //var manualDeserialisation = JsonConvert.DeserializeObject<CocktailList>(jsonStr);
                 //return manualDeserialisation;
-
             }
             return null;
         }

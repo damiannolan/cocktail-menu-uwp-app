@@ -1,4 +1,5 @@
 ﻿using CocktailRecipeApp.Services;
+using CocktailRecipeApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -24,24 +25,36 @@ namespace CocktailRecipeApp
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public string searchName { get; set; }
+
         private ICocktailService cocktailService;
 
         public MainPage()
         {
             this.InitializeComponent();
 
+            // Create a ViewModel 
+            // Encapsulate this stuff in viewmodel
             cocktailService = new CocktailService();
             
         }
 
-        private async void button_Click(object sender, RoutedEventArgs e)
+        private void searchCocktailsByName_Click(object sender, RoutedEventArgs e)
         {
-            var response = await cocktailService.SearchCocktails("margarita");
-
-            foreach(var cocktail in response.Drinks)
+            if(searchName != "")
             {
-                Debug.WriteLine(cocktail);
+                this.Frame.Navigate(typeof(CocktailsList), searchName);
             }
+            
+
+ //           Debug.WriteLine(searchName);
+            // Upon a button blick use the viewmodel and delegate the work to the CocktailService
+ //           var response = await cocktailService.SearchCocktails("margarita");
+
+ //           foreach(var cocktail in response.Drinks)
+  //          {
+   //             Debug.WriteLine(cocktail);
+      //      }
         }
     }
 }

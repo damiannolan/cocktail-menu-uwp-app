@@ -102,6 +102,10 @@
     <Compile Include="Models\CocktailList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CocktailService.cs" />
+    <Compile Include="ViewModels\CocktailListViewModel.cs" />
+    <Compile Include="Views\CocktailsList.xaml.cs">
+      <DependentUpon>CocktailsList.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -130,6 +134,10 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CocktailsList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup />

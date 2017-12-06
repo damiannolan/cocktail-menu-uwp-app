@@ -16,14 +16,13 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
+
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1">
             <StackPanel HorizontalAlignment="Center" Width="250">
-                <TextBox x:Name="textBox" Margin="5" PlaceholderText="Enter Name" Width="Auto"/>
-                <Button x:Name="button" Margin="5" Width="250" Content="Search" Background="#571851" Click="button_Click" HorizontalAlignment="Center"  />
-                <Button x:Name="button2" Margin="5" Width="250" Content="Random" Background="#571851" HorizontalAlignment="Center"/>
+                <TextBox x:Name="textBox" Margin="5" PlaceholderText="Enter Cocktail Name" Text="{x:Bind searchName, Mode=TwoWay}" Width="Auto"/>
+                <Button x:Name="btnSearch" Margin="5" Width="250" Content="Search" Background="#571851" Click="searchCocktailsByName_Click" HorizontalAlignment="Center"  />
+                <Button x:Name="btnRandom" Margin="5" Width="250" Content="Random" Background="#571851" HorizontalAlignment="Center"/>
             </StackPanel>
         </StackPanel>
-
     </Grid>
 </Page>
