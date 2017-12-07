@@ -48,7 +48,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel x:Name="Header" Grid.Row="0">
-            <Image Source="../Images/menu.png" Width="150" Height="50" Margin="15"/>
+            <Image Source="../Images/menu.png" HorizontalAlignment="Center" Width="150" Height="50" Margin="15"/>
         </StackPanel>
 
         <StackPanel x:Name="ListView" Grid.Row="1">

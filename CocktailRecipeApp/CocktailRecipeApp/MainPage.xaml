@@ -9,14 +9,18 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush Stretch="Fill" ImageSource="Images/background.png"></ImageBrush>
+            <ImageBrush Stretch="Fill" ImageSource="Images/cocktail.png"></ImageBrush>
         </Grid.Background>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <StackPanel x:Name="Header" Grid.Row="0">
+            <Image Source="Images/logo.png" HorizontalAlignment="Center" Width="300" Height="100" Margin="25"/>
+        </StackPanel>
+        
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1">
             <StackPanel HorizontalAlignment="Center" Width="250">
                 <TextBox x:Name="textBox" Margin="5" PlaceholderText="Enter Cocktail Name" Text="{x:Bind searchName, Mode=TwoWay}" Width="Auto"/>
