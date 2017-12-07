@@ -9,7 +9,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush Stretch="Fill" ImageSource="Images/cocktail.png"></ImageBrush>
+            <ImageBrush Stretch="UniformToFill" ImageSource="Images/temp.jpg"></ImageBrush>
         </Grid.Background>
 
         <Grid.RowDefinitions>
