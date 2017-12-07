@@ -30,11 +30,19 @@ namespace CocktailRecipeApp.ViewModels
         {
             var response = await cocktailService.SearchCocktails(searchName);
 
-            foreach(var cocktail in response.Drinks)
+            if (response.Drinks == null)
             {
-                Debug.WriteLine(cocktail.StrDrink);
-                cocktails.Add(cocktail);
+                cocktails.Add(new Cocktail("Whoops! Something went wrong!", "We cannot seem to find the recipe you are looking for. Please try again!", "../Images/sadface.png"));
             }
+            else
+            {
+                foreach (var cocktail in response.Drinks)
+                {
+                    Debug.WriteLine(cocktail.StrDrink);
+                    cocktails.Add(cocktail);
+                }
+
+            }          
         }
     }
 }

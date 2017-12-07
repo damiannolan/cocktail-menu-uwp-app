@@ -25,5 +25,23 @@ namespace CocktailRecipeApp.Models
         public string StrMeasure4 { get; set; }
         public string StrMeasure5 { get; set; }
         
+        public Cocktail(string strDrink, string strInstructions, string strDrinkThumb)
+        {
+            IdDrink = "0";
+            StrDrink = strDrink;
+            StrInstructions = strInstructions;
+            StrDrinkThumb = strDrinkThumb;
+
+            StrIngredient1 = " ";
+            StrIngredient2 = " ";
+            StrIngredient3 = " ";
+            StrIngredient4 = " ";
+            StrIngredient5 = " ";
+            StrMeasure1 = " ";
+            StrMeasure1 = " ";
+            StrMeasure1 = " ";
+            StrMeasure1 = " ";
+            StrMeasure1 = " ";
+    }
     }
 }

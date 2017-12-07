@@ -45,16 +45,7 @@ namespace CocktailRecipeApp
             {
                 this.Frame.Navigate(typeof(CocktailsList), searchName);
             }
-            
 
- //           Debug.WriteLine(searchName);
-            // Upon a button blick use the viewmodel and delegate the work to the CocktailService
- //           var response = await cocktailService.SearchCocktails("margarita");
-
- //           foreach(var cocktail in response.Drinks)
-  //          {
-   //             Debug.WriteLine(cocktail);
-      //      }
         }
     }
 }

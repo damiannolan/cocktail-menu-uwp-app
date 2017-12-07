@@ -1,0 +1,95 @@
+﻿<Page
+    x:Class="CocktailRecipeApp.Views.RandomCocktail"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CocktailRecipeApp.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:data="using:CocktailRecipeApp.Models"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <DataTemplate x:Key="CocktailListDataTemplate" x:DataType="data:Cocktail">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" Margin="10,25,10,25">
+                    <Image Name="image" Source="{x:Bind StrDrinkThumb}" Grid.Column="0" HorizontalAlignment="Left" Width="200" Height="200" />
+                </StackPanel>
+
+
+                <StackPanel Grid.Row="1" Margin="10,25,10,25">
+                    <TextBlock Text="{x:Bind StrDrink}" Foreground="HotPink" HorizontalAlignment="Left" FontSize="26" FontWeight="Bold" TextWrapping="Wrap" />
+
+                    <TextBlock Text="Ingredients" Foreground="HotPink" FontSize="16" FontWeight="Bold"/>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{x:Bind StrIngredient1}" FontSize="12"/>
+                        <TextBlock Text=" -  " FontSize="12" xml:space="preserve"/>
+                        <TextBlock Text="{x:Bind StrMeasure1}" FontSize="12"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{x:Bind StrIngredient2}" FontSize="12"/>
+                        <TextBlock Text=" -  " FontSize="12" xml:space="preserve"/>
+                        <TextBlock Text="{x:Bind StrMeasure2}" FontSize="12"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{x:Bind StrIngredient3}" FontSize="12"/>
+                        <TextBlock Text=" -  " FontSize="12" xml:space="preserve"/>
+                        <TextBlock Text="{x:Bind StrMeasure3}" FontSize="12"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{x:Bind StrIngredient4}" FontSize="12"/>
+                        <TextBlock Text=" -  " FontSize="12" xml:space="preserve"/>
+                        <TextBlock Text="{x:Bind StrMeasure4}" FontSize="12"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{x:Bind StrIngredient5}" FontSize="12"/>
+                        <TextBlock Text=" -  " FontSize="12" xml:space="preserve"/>
+                        <TextBlock Text="{x:Bind StrMeasure5}" FontSize="12"/>
+                    </StackPanel>
+
+                    <TextBlock Text="Instructions" Foreground="HotPink" FontSize="16" FontWeight="Bold"/>
+                    <TextBlock Text="{x:Bind StrInstructions}" TextWrapping="Wrap" HorizontalAlignment="Left" FontSize="12" />
+
+                </StackPanel>
+            </Grid>
+
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush Stretch="UniformToFill" ImageSource="../Images/temp.jpg"></ImageBrush>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!--For the header-->
+            <RowDefinition Height="*"/>
+            <!--Listview-->
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="Header" Grid.Row="0">
+            <Image Source="../Images/menu.png" HorizontalAlignment="Center" Width="150" Height="50" Margin="15"/>
+        </Grid>
+
+        <Grid x:Name="ListView" Grid.Row="1" HorizontalAlignment="Center">
+            <ListView x:Name="cocktailListView" 
+                      Margin="25,0,25,0"                     
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      ItemsSource="{x:Bind viewModel.Cocktails}"
+                      ItemTemplate="{StaticResource CocktailListDataTemplate}">
+            </ListView>
+        </Grid>
+
+    </Grid>
+</Page>

@@ -48,12 +48,15 @@ namespace CocktailRecipeApp.Services
             {
                 return await response.Content.ReadAsAsync<CocktailList>();
 
-                //var jsonStr = await response.Content.ReadAsStringAsync();                
-                //var jsonSettings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
-                //var manualDeserialisation = JsonConvert.DeserializeObject<CocktailList>(jsonStr);
-                //return manualDeserialisation;
-            }
-            return null;
+                // Manual Deserialisation
+                // var jsonStr = await response.Content.ReadAsStringAsync();                
+                // var jsonSettings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
+                // var manualDeserialisation = JsonConvert.DeserializeObject<CocktailList>(jsonStr);
+                // return manualDeserialisation;
+            } else
+            {
+                return null;
+            }        
         }
     }
 }
