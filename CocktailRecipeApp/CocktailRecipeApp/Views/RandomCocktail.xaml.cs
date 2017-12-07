@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CocktailRecipeApp.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace CocktailRecipeApp.Views
     public sealed partial class RandomCocktail : Page
     {
 
-        //public RandomCocktailViewModel viewModel { get; set; }
+        public RandomCocktailViewModel viewModel { get; set; }
 
         public RandomCocktail()
         {
@@ -34,8 +35,8 @@ namespace CocktailRecipeApp.Views
         {
             base.OnNavigatedTo(e);
          
-            //viewModel = new RandomCocktailViewModel();
-            //viewModel.getCocktailDataAsync();
+            viewModel = new RandomCocktailViewModel();
+            viewModel.getCocktailDataAsync();
         }
     }
 }

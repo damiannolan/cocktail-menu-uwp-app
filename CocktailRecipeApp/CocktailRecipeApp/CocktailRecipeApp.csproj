@@ -103,8 +103,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CocktailService.cs" />
     <Compile Include="ViewModels\CocktailListViewModel.cs" />
+    <Compile Include="ViewModels\RandomCocktailViewModel.cs" />
     <Compile Include="Views\CocktailsList.xaml.cs">
       <DependentUpon>CocktailsList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RandomCocktail.xaml.cs">
+      <DependentUpon>RandomCocktail.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +144,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\CocktailsList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RandomCocktail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

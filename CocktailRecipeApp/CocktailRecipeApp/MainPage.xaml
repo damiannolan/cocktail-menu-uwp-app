@@ -25,7 +25,7 @@
             <StackPanel HorizontalAlignment="Center" Width="250">
                 <TextBox x:Name="textBox" Margin="5" PlaceholderText="Enter Cocktail Name" Text="{x:Bind searchName, Mode=TwoWay}" Width="Auto"/>
                 <Button x:Name="btnSearch" Margin="5" Width="250" Content="Search" Background="#571851" Click="searchCocktailsByName_Click" HorizontalAlignment="Center"  />
-                <Button x:Name="btnRandom" Margin="5" Width="250" Content="Random" Background="#571851" HorizontalAlignment="Center"/>
+                <Button x:Name="btnRandom" Margin="5" Width="250" Content="Random" Background="#571851" HorizontalAlignment="Center" Click="randomCocktail_Click"/>
             </StackPanel>
         </StackPanel>
     </Grid>

@@ -47,5 +47,10 @@ namespace CocktailRecipeApp
             }
 
         }
+
+        private void randomCocktail_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(RandomCocktail));
+        }
     }
 }
