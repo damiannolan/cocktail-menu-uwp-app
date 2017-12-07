@@ -10,33 +10,56 @@
 
     <Page.Resources>
         <DataTemplate x:Key="CocktailListDataTemplate" x:DataType="data:Cocktail">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
-                <Image Name="image" Source="{x:Bind StrDrinkThumb}" HorizontalAlignment="Left" Width="Auto" Height="Auto" />
+                <StackPanel Grid.Column="0" Margin="50,25,10,25">
+                    <Image Name="image" Source="{x:Bind StrDrinkThumb}" Grid.Column="0" HorizontalAlignment="Left" Width="100" Height="100" />
+                </StackPanel>
+                
+                
+                <StackPanel Grid.Column="1" Margin="10,25,10,25">
+                    <TextBlock Text="{x:Bind StrDrink}" Foreground="#571851" HorizontalAlignment="Left" FontSize="16" FontWeight="Bold" TextWrapping="Wrap" />
+                    <TextBlock Text="{x:Bind StrInstructions}" TextWrapping="Wrap" HorizontalAlignment="Left" FontSize="12" />
+                    <!--<Button Content="Learn More" Background="#571851"/>-->
+                </StackPanel>
+                <!--<StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                    <Image Name="image" Source="{x:Bind StrDrinkThumb}" Grid.Column="0" HorizontalAlignment="Left" Width="100" Height="100" />
 
-                <TextBlock Text="{x:Bind StrDrink}" HorizontalAlignment="Left" FontSize="16" FontWeight="Bold" TextWrapping="Wrap" />
-                <TextBlock Text="{x:Bind StrInstructions}" HorizontalAlignment="Left" FontSize="12" />
-                <!--<TextBlock Text="{x:Bind StrIngredients}" HorizontalAlignment="Left" TextWrapping="Wrap"  FontSize="12" />-->
-                <!--<HyperlinkButton Content="{x:Bind Url}" NavigateUri="{x:Bind Url}" HorizontalAlignment="Left" FontSize="10"/>-->
-
-                <!--<StackPanel Margin="20,20,0,0" Orientation="Vertical" HorizontalAlignment="Left">                   
+                    <TextBlock Text="{x:Bind StrDrink}" Grid.Column="1" HorizontalAlignment="Left" FontSize="16" FontWeight="Bold" TextWrapping="Wrap" />
+                    <TextBlock Text="{x:Bind StrInstructions}" Grid.Column="1" HorizontalAlignment="Left" FontSize="12" />
                 </StackPanel>-->
-            </StackPanel>
+            </Grid>
+            
         </DataTemplate>
     </Page.Resources>
 
     <Grid>
         <Grid.Background>
-            <ImageBrush Stretch="Fill" ImageSource="../Images/background.png"></ImageBrush>
+            <ImageBrush Stretch="Fill" ImageSource="../Images/cocktail.png"></ImageBrush>
         </Grid.Background>
 
-        <ListView x:Name="cocktailListView"
-                  HorizontalContentAlignment="Stretch"
-                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                  ScrollViewer.VerticalScrollBarVisibility="Hidden"
-                  ItemsSource="{x:Bind viewModel.Cocktails}"
-                  ItemTemplate="{StaticResource CocktailListDataTemplate}">
-            
-        </ListView>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/> <!--For the header-->  
+            <RowDefinition Height="*"/>  <!--Listview-->
+        </Grid.RowDefinitions>
+
+        <StackPanel x:Name="Header" Grid.Row="0">
+            <Image Source="../Images/menu.png" Width="150" Height="50" Margin="15"/>
+        </StackPanel>
+
+        <StackPanel x:Name="ListView" Grid.Row="1">
+            <ListView x:Name="cocktailListView"                  
+                      HorizontalContentAlignment="Stretch"
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      ItemsSource="{x:Bind viewModel.Cocktails}"
+                      ItemTemplate="{StaticResource CocktailListDataTemplate}">
+            </ListView>
+        </StackPanel>
+
     </Grid>
 </Page>
