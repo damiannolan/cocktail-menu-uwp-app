@@ -28,8 +28,7 @@ namespace CocktailRecipeApp.Views
 
         public CocktailsList()
         {
-            this.InitializeComponent();
-            
+            this.InitializeComponent();          
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

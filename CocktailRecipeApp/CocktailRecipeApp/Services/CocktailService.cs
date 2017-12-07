@@ -18,15 +18,21 @@ namespace CocktailRecipeApp.Services
     public interface ICocktailService
     {
         Task<CocktailList> SearchCocktails(string searchName);
+
+        Task<CocktailList> RandomCocktail();
     }
 
     public class CocktailService : ICocktailService
     {
         private const string apiKey = "1";
         private const string searchEndpoint = "http://www.thecocktaildb.com/api/json/v1/" + apiKey + "/search.php?s=";
-        
+        private const string randomEndpoint = "http://www.thecocktaildb.com/api/json/v1/1/random.php";
         private HttpClient client;
 
+        /*
+        * Use the constructor to instantiate a new HttpClient
+        * Set the headers up for accepting the Content-Type - application/json
+        */
         public CocktailService()
         {
             this.client = new HttpClient();
@@ -34,6 +40,13 @@ namespace CocktailRecipeApp.Services
             this.client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
+        /*
+         * Implementation of method defined by ICocktailService interface
+         * Append the string - searchName to the searchEndpoint
+         * Set the HttpClient's baseAddress
+         * Await the response
+         * Handle response
+         */
         public async Task<CocktailList> SearchCocktails(string searchName)
         {
             // Tried to implement using the HttpUtility - UrlEncode but was having problems getting it working
@@ -53,10 +66,33 @@ namespace CocktailRecipeApp.Services
                 // var jsonSettings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
                 // var manualDeserialisation = JsonConvert.DeserializeObject<CocktailList>(jsonStr);
                 // return manualDeserialisation;
-            } else
+            }
+            else
             {
                 return null;
             }        
+        }
+
+        /*
+         * Implementation of method defined by ICocktailService interface
+         * Set the HttpClient's baseAddress
+         * Await the response
+         * Handle response
+         */
+        public async Task<CocktailList> RandomCocktail()
+        {
+            client.BaseAddress = new Uri(randomEndpoint);
+
+            HttpResponseMessage response = await client.GetAsync(client.BaseAddress);
+
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadAsAsync<CocktailList>();
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
