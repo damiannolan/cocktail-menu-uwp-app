@@ -16,14 +16,48 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <StackPanel Grid.Column="0" Margin="50,25,10,25">
-                    <Image Name="image" Source="{x:Bind StrDrinkThumb}" Grid.Column="0" HorizontalAlignment="Left" Width="100" Height="100" />
+                <StackPanel Grid.Column="0" Margin="10,25,10,25">
+                    <Image Name="image" Source="{x:Bind StrDrinkThumb}" Grid.Column="0" HorizontalAlignment="Left" Width="150" Height="150" />
                 </StackPanel>
 
                 <StackPanel Grid.Column="1" Margin="10,25,10,25">
-                    <TextBlock Text="{x:Bind StrDrink}" Foreground="#571851" HorizontalAlignment="Left" FontSize="16" FontWeight="Bold" TextWrapping="Wrap" />
+                    <TextBlock Text="{x:Bind StrDrink}" Foreground="#571851" HorizontalAlignment="Left" FontSize="20" FontWeight="Bold" TextWrapping="Wrap" />
+
+                    <TextBlock Text="Ingredients" Foreground="#571851" FontSize="14" FontWeight="Bold"/>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{x:Bind StrIngredient1}" FontSize="12"/>
+                        <TextBlock Text=" -  " FontSize="12" xml:space="preserve"/>
+                        <TextBlock Text="{x:Bind StrMeasure1}" FontSize="12"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{x:Bind StrIngredient2}" FontSize="12"/>
+                        <TextBlock Text=" -  " FontSize="12" xml:space="preserve"/>
+                        <TextBlock Text="{x:Bind StrMeasure2}" FontSize="12"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{x:Bind StrIngredient3}" FontSize="12"/>
+                        <TextBlock Text=" -  " FontSize="12" xml:space="preserve"/>
+                        <TextBlock Text="{x:Bind StrMeasure3}" FontSize="12"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{x:Bind StrIngredient4}" FontSize="12"/>
+                        <TextBlock Text=" -  " FontSize="12" xml:space="preserve"/>
+                        <TextBlock Text="{x:Bind StrMeasure4}" FontSize="12"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{x:Bind StrIngredient5}" FontSize="12"/>
+                        <TextBlock Text=" -  " FontSize="12" xml:space="preserve"/>
+                        <TextBlock Text="{x:Bind StrMeasure5}" FontSize="12"/>
+                    </StackPanel>
+
+                    <TextBlock Text="Instructions" Foreground="#571851" FontSize="14" FontWeight="Bold"/>
                     <TextBlock Text="{x:Bind StrInstructions}" TextWrapping="Wrap" HorizontalAlignment="Left" FontSize="12" />
-                    <!--<Button Content="Learn More" Background="#571851"/>-->
+
                 </StackPanel>
             </Grid>
             
